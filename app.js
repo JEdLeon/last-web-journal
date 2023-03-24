@@ -42,7 +42,6 @@ app.route(['/', '/index', '/home'])
                         postsList.push(doc);
                     }
                 }
-                //res.render('home', { homeStartingContent, postsList });
             })
             .finally(() => {
                 res.render('home', { homeStartingContent, postsList });
@@ -73,17 +72,15 @@ app.route('/compose')
             body: req.body.postBody
         });
         newPost.save()
-            .then(doc => {
-                if (doc) {
+            .finally(() => {
                     setTimeout(() => {
                         res.redirect('/home');
                     }, 200);
-                }
             })
             .catch(error => {
                 console.log(error);
                 res.redirect('/compose');
-            })
+            });
     });
 
 app.route('/post/:postName')
@@ -124,7 +121,7 @@ app.route('/remove')
         }
         if (idToDelete != '') {
             Post.deleteOne({ _id: idToDelete })
-                .then(doc => {
+                .finally(() => {
                     res.redirect('/home');
                 });
         }
