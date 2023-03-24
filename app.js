@@ -18,7 +18,7 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 let postsList = [];
 
 //Create connection to mongoDB
-const connectionPort = 'mongodb://127.0.0.1:27017/journalDB';
+const connectionPort = 'mongodb+srv://jeduardoleon22:y0UD17rw2KFKx0sU@todocluster.7qrabmy.mongodb.net/journalDB';
 mongooseConnect().catch(error => { console.log(error) });
 async function mongooseConnect() {
     await mongoose.connect(connectionPort);
