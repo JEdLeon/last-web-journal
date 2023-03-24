@@ -1,0 +1,14 @@
+<%- include('partials/header', {section: ''}) %>
+
+<h1>Remove Post</h1>
+<form action="/remove" method="post">
+    <div class="row">
+        <div class="col-12 mb-3">
+            <h6>Title</h6>
+            <input class="form-control" type="text" name="postTitle" placeholder="Title" autocomplete="off" required>
+        </div>
+    </div>
+    <button class="btn btn-outline-primary my-3" type="submit" name="submit" value="post">Remove</button>
+</form>
+
+<%- include('partials/footer') %>
