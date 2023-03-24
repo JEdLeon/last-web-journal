@@ -42,7 +42,7 @@ app.route(['/', '/index', '/home'])
                         postsList.push(doc);
                     }
                 }
-                res.render('home', { homeStartingContent, postsList });
+                //res.render('home', { homeStartingContent, postsList });
             })
             .finally(() => {
                 res.render('home', { homeStartingContent, postsList });
