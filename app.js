@@ -1,3 +1,4 @@
+require('dotenv').config();
 //Require modules for Personal Web Journal using a MongoDB
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -18,7 +19,8 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 let postsList = [];
 
 //Create connection to mongoDB
-const connectionPort = 'mongodb+srv://jeduardoleon22:y0UD17rw2KFKx0sU@todocluster.7qrabmy.mongodb.net/journalDB';
+const connectionPort = `${process.env.ATLASDB}/journalDB`;
+//const connectionPort = 'mongodb://127.0.0.1:27017/journalDB';
 mongooseConnect().catch(error => { console.log(error) });
 async function mongooseConnect() {
     await mongoose.connect(connectionPort);
